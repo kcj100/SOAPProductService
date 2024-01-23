@@ -1,25 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- XML Schema Definition (XSD) for the GProductService -->
+
+<!-- Define the XML Schema namespace and the target namespace for the GProductService -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.gproductservice.com"
            targetNamespace="http://www.gproductservice.com" elementFormDefault="qualified">
 
+    <!-- Define the structure of the getProductRequest element -->
     <xs:element name="getProductRequest">
         <xs:complexType>
+            <!-- Specify that the getProductRequest element contains a 'name' element of type 'xs:string' -->
             <xs:sequence>
                 <xs:element name="name" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
 
+    <!-- Define the structure of the getProductResponse element -->
     <xs:element name="getProductResponse">
         <xs:complexType>
+            <!-- Specify that the getProductResponse element contains a 'product' element of type 'tns:product' -->
             <xs:sequence>
                 <xs:element name="product" type="tns:product"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
 
+    <!-- Define the structure of the 'product' complex type -->
     <xs:complexType name="product">
         <xs:sequence>
+            <!-- Specify the elements within the 'product' complex type: 'name', 'price', and 'sku' -->
             <xs:element name="name" type="xs:string"/>
             <xs:element name="price" type="xs:double"/>
             <xs:element name="sku" type="xs:string"/>

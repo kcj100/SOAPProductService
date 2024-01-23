@@ -54,26 +54,42 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <!-- Maven plugin configuration for JAXB (Java Architecture for XML Binding) code generation -->
+
+            <!-- Use the jaxb2-maven-plugin to generate Java code from XML Schema (XSD) -->
             <plugin>
+                <!-- Maven coordinates for the jaxb2-maven-plugin -->
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>jaxb2-maven-plugin</artifactId>
                 <version>3.1.0</version>
+
+                <!-- Define plugin executions -->
                 <executions>
+                    <!-- Define an execution with an id 'xjc' -->
                     <execution>
                         <id>xjc</id>
+                        <!-- Specify the goals for this execution, in this case, 'xjc' (XML to Java Code) -->
                         <goals>
                             <goal>xjc</goal>
                         </goals>
                     </execution>
                 </executions>
+
+                <!-- Configuration for the xjc goal -->
                 <configuration>
+                    <!-- Specify the source XML Schema file for code generation -->
                     <sources>
                         <source>src/main/resources/products.xsd</source>
                     </sources>
+
+                    <!-- Specify the output directory for the generated Java code -->
                     <outputDirectory>src/main/java</outputDirectory>
+
+                    <!-- Disable clearing of the output directory before code generation -->
                     <clearOutputDir>false</clearOutputDir>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 
